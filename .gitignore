@@ -1,0 +1,61 @@
+# OSX
+#
+front/.DS_Store
+
+# Xcode
+#
+front/build/
+front/*.pbxuser
+!front/default.pbxuser
+front/*.mode1v3
+!front/default.mode1v3
+front/*.mode2v3
+!front/default.mode2v3
+front/*.perspectivev3
+!front/default.perspectivev3
+front/xcuserdata
+front/*.xccheckout
+front/*.moved-aside
+front/DerivedData
+front/*.hmap
+front/*.ipa
+front/*.xcuserstate
+front/ios/.xcode.env.local
+
+# Android/IntelliJ
+#
+front/build/
+front/.idea
+front/.gradle
+front/local.properties
+front/*.iml
+front/*.hprof
+front/.cxx/
+front/*.keystore
+!front/debug.keystore
+
+# node.js
+#
+front/node_modules/
+front/npm-debug.log
+front/yarn-error.log
+
+# fastlane
+#
+front/**/fastlane/report.xml
+front/**/fastlane/Preview.html
+front/**/fastlane/screenshots
+front/**/fastlane/test_output
+
+# Bundle artifact
+front/*.jsbundle
+
+# Ruby / CocoaPods
+front/ios/Pods/
+front/vendor/bundle/
+
+# Temporary files created by Metro to check the health of the file watcher
+front/.metro-health-check*
+
+# testing
+front/coverage
