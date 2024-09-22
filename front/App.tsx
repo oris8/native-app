@@ -120,13 +120,43 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import RootNavigator from './src/navigation/root/RootNavigator';
+import NfcManager, {NfcTech} from 'react-native-nfc-manager';
+import {TouchableOpacity, Text, StyleSheet} from 'react-native';
+
+NfcManager.start();
 
 function App() {
+  async function readNdef() {
+    try {
+      // register for the NFC tag with NDEF in it
+      await NfcManager.requestTechnology(NfcTech.Ndef);
+      // the resolved tag object will contain `ndefMessage` property
+      const tag = await NfcManager.getTag();
+      console.warn('Tag found', tag);
+    } catch (ex) {
+      console.warn('Oops!', ex);
+    } finally {
+      // stop the nfc scanning
+      NfcManager.cancelTechnologyRequest();
+    }
+  }
+
   return (
     <NavigationContainer>
+      <TouchableOpacity onPress={readNdef}>
+        <Text>Scan a Tag</Text>
+      </TouchableOpacity>
       <RootNavigator />
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default App;
