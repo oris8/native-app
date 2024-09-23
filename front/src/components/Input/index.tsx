@@ -25,6 +25,7 @@ const InputField = forwardRef(
     {disabled = false, error, touched, ...props}: InputFieldProps,
     ref?: ForwardedRef<TextInput>,
   ) => {
+    // input 자체가 아닌 박스를 눌러도 인풋 입력이 되도록
     const innerRef = useRef<TextInput | null>(null);
 
     const handlePressInput = () => {
@@ -44,6 +45,7 @@ const InputField = forwardRef(
             editable={!disabled}
             placeholderTextColor={colors.GRAY_500}
             style={[styles.input, disabled && styles.disabled]}
+            // 자동 대문자, 맞춤법 검사, 자동 추천 방지
             autoCapitalize="none"
             spellCheck={false}
             autoCorrect={false}
@@ -62,7 +64,9 @@ const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
     borderColor: colors.GRAY_200,
-    padding: deviceHeight > 700 ? 15 : 10,
+    paddingVertical: deviceHeight > 700 ? 10 : 8,
+    paddingHorizontal: deviceHeight > 700 ? 15 : 10,
+    borderRadius: 16,
   },
   input: {
     fontSize: 16,

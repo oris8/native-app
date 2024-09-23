@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import {colors} from '@/constants';
+import ToggleButton from './ToggleButton';
 
 interface CustomButtonProps extends PressableProps {
   label: string;
@@ -44,9 +45,9 @@ function PrimaryButton({
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 3,
     flexDirection: 'row',
     justifyContent: 'center',
+    borderRadius: 16,
   },
   inValid: {
     opacity: 0.5,
@@ -93,3 +94,4 @@ const styles = StyleSheet.create({
 });
 
 export default PrimaryButton;
+export {ToggleButton};
